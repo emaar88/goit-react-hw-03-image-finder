@@ -23,16 +23,7 @@ export default class App extends Component {
     console.log("prevQuery:" + prevQuery, "nextquery:" + nextQuery);
     if (prevQuery !== nextQuery) {
       this.fetchImages();
-      this.toUpState();
     }
-  }
-
-  componentDidMount() {
-    window.addEventListener("keydown", this.setScroll);
-  }
-
-  componentWillUnmount() {
-    window.removeEventListener("keydown", this.setScroll);
   }
 
   fetchImages = () => {
