@@ -6,9 +6,7 @@ const ImageGallery = ({ images, imageModal }) => {
   return (
     <ul className="ImageGallery">
       {images.length > 0 ? (
-        images.map((image) => (
-          <ImageGalleryItem {...image} key={image.id} onClick={imageModal} />
-        ))
+        images.map((image) => <ImageGalleryItem {...image} key={image.id} />)
       ) : (
         <li className="alert">No have contacts!</li>
       )}
