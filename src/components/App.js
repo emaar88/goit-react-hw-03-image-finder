@@ -19,7 +19,6 @@ export default class App extends Component {
   componentDidUpdate(prevProps, prevState) {
     const prevQuery = prevState.searchQuery;
     const nextQuery = this.state.searchQuery;
-
     if (prevQuery !== nextQuery) {
       this.fetchImages(nextQuery);
     }
@@ -56,7 +55,6 @@ export default class App extends Component {
   toUp = () => {
     setTimeout(() => {
       let windowHeight = document.documentElement.clientHeight;
-      console.log(windowHeight);
       window.scrollTo({
         top: windowHeight - 1162,
         behavior: "smooth",
