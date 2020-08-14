@@ -20,16 +20,14 @@ export default class App extends Component {
     const prevQuery = prevState.searchQuery;
     const nextQuery = this.state.searchQuery;
 
-    console.log("prevQuery:" + prevQuery, "nextquery:" + nextQuery);
     if (prevQuery !== nextQuery) {
-      this.fetchImages();
+      this.fetchImages(nextQuery);
     }
   }
 
   fetchImages = () => {
     const { searchQuery, page } = this.state;
     this.setState({ loading: true });
-    console.log(imagesApi);
     imagesApi
       .fetchImagesWithQuery(searchQuery, page)
       .then((images) =>
@@ -67,7 +65,6 @@ export default class App extends Component {
   };
 
   handleSearchBarSubmit = (query) => {
-    console.log(query);
     this.setState({ searchQuery: query, page: 1, images: [] });
   };
 
@@ -76,10 +73,14 @@ export default class App extends Component {
     return (
       <>
         <SearchBar onSubmit={this.handleSearchBarSubmit} />​
-        {images.length > 0 && (
-          <ImageGallery images={images} imageModal={this.toggleModal} />
+        {images.length > 0 ? (
+          <ImageGallery images={images} />
+        ) : (
+          <p className="alert">
+            If pixabay have photos for you, they will be here!
+          </p>
         )}
-        ​{loading && <Loader message="Loading..." />}
+        ​{loading && <Loader />}
         {images.length > 0 && !loading && (
           <>
             <div className="buttonContainer">

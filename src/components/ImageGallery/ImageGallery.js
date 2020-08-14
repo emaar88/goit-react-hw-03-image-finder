@@ -2,14 +2,12 @@ import React from "react";
 import ImageGalleryItem from "./../ImageGalleryItem/ImageGalleryItem";
 import "./ImageGallery.scss";
 
-const ImageGallery = ({ images, imageModal }) => {
+const ImageGallery = ({ images }) => {
   return (
     <ul className="ImageGallery">
-      {images.length > 0 ? (
-        images.map((image) => <ImageGalleryItem {...image} key={image.id} />)
-      ) : (
-        <li className="alert">No have contacts!</li>
-      )}
+      {images.map((image) => (
+        <ImageGalleryItem {...image} key={image.id} />
+      ))}
     </ul>
   );
 };

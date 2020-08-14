@@ -15,6 +15,7 @@ export default class App extends React.Component {
           width={80}
           timeout={1000}
         />
+        <p className="loading-text">Loading</p>
       </div>
     );
   }
