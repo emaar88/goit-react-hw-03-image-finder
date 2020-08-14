@@ -46,7 +46,7 @@ export default class App extends Component {
     this.fetchImages();
     setTimeout(() => {
       window.scrollTo({
-        top: +window.scrollY + 1162,
+        top: +window.scrollY + 3840,
         behavior: "smooth",
       });
     }, 700);
