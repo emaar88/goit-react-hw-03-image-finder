@@ -1,11 +1,11 @@
 import React, { Component } from "react";
-import Loader from "./Loader/Loader";
-import Button from "./Button/Button";
-import ButtonUp from "./ButtonUp/ButtonUp";
-import SearchBar from "./SearchBar/SearchBar";
-import imagesApi from "./services/imagesApi";
+import Loader from "./Loader/";
+import Button from "./Button/";
+import ButtonUp from "./ButtonUp/";
+import SearchBar from "./SearchBar/";
+import imagesApi from "./services/";
 import "./App.scss";
-import ImageGallery from "./ImageGallery/ImageGallery";
+import ImageGallery from "./ImageGallery/";
 
 export default class App extends Component {
   state = {
@@ -42,7 +42,7 @@ export default class App extends Component {
       .finally(() => this.setState({ loading: false }));
   };
 
-  toUpState = () => {
+  fetchGallery = () => {
     this.setState((prevState) => ({
       page: prevState.page + 1,
     }));
@@ -69,7 +69,6 @@ export default class App extends Component {
   handleSearchBarSubmit = (query) => {
     console.log(query);
     this.setState({ searchQuery: query, page: 1, images: [] });
-    // *ця функція скидає.
   };
 
   render() {
@@ -84,7 +83,7 @@ export default class App extends Component {
         {images.length > 0 && !loading && (
           <>
             <div className="buttonContainer">
-              <Button onClick={this.toUpState}></Button>
+              <Button onClick={this.fetchGallery}></Button>
               <ButtonUp onClick={this.toUp}></ButtonUp>
             </div>
           </>
