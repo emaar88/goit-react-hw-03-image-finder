@@ -7,6 +7,4 @@ const fetchImagesWithQuery = (searchQuery, page = 1) => {
     )
     .then((response) => response.data.hits);
 };
-console.log({ fetchImagesWithQuery });
 export default { fetchImagesWithQuery };
-// * в результатів запитів буде багато функц
